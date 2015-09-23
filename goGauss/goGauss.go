@@ -10,22 +10,20 @@ import (
 //TODO first step
 //TODO print result of step;
 
-
-
-
-func main ( ) {
+func getDataFromfile  (fileName string) string {
+    
     var inputFile *os.File;
     var inputError error;
     var readerError error;
     var inputReader *bufio.Reader;
     var inputString string;
+    var readenString string;
     
-    
-    inputFile,inputError=os.OpenFile("linear.dat",os.O_RDONLY,0);
+    inputFile,inputError=os.OpenFile(fileName,os.O_RDONLY,0);
     
 	if inputError!=nil {
 		fmt.Printf("Error opening file");
-		return ;
+		return "Error opening file";
 	}
 
     
@@ -33,12 +31,29 @@ func main ( ) {
     
     for {
         
-        inputString,readerError = inputReader.ReadString(';');
+        readenString,readerError = inputReader.ReadString(';');
         if readerError!=nil {
             
-            return;    
+            break;   
         }
         
-        fmt.Println(inputString);
+        inputString+=readenString;
+        
     }
+    return inputString;
+}
+
+func convertToMatrix (inputString string) matrX [][]float, matrB []float {
+    []matrB:={2;3;4;44.3};
+    [][]matrX:={{4;4;3;2;4;4};{4;1;1;1;1};{32;3;21.2323;443}};
+    
+    return
+}
+
+func main ( ) {
+    linearEquations := getDataFromfile("linear.dat")
+    fmt.Println(linearEquations)
+    
+    matrX,matrB:=convertToMatrix(linearEquations);
+    fmt.Println(matrB);
 }
