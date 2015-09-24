@@ -1,0 +1,1 @@
+var contactList = app.Module('contactList',[])
