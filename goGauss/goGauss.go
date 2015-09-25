@@ -43,17 +43,13 @@ func getDataFromfile  (fileName string) string {
     return inputString;
 }
 
-func convertToMatrix (inputString string) matrX [][]float, matrB []float {
-    []matrB:={2;3;4;44.3};
-    [][]matrX:={{4;4;3;2;4;4};{4;1;1;1;1};{32;3;21.2323;443}};
-    
-    return
-}
-
+ 
 func main ( ) {
     linearEquations := getDataFromfile("linear.dat")
     fmt.Println(linearEquations)
     
-    matrX,matrB:=convertToMatrix(linearEquations);
-    fmt.Println(matrB);
+    matrB:= []float64 {-2,-3,-4,-44.3};
+    matrX:= [][]float64 {{4,4,3,2,4,4},{4,1,1,1,1},{32,3,21.2323,443}};
+    fmt.Println(matrX,matrB)
+    
 }
